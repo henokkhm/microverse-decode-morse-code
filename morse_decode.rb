@@ -32,15 +32,19 @@ def decode_char(morse_code)
 end
 
 def decode_word(morse_code)
-  words = morse_code.split
-  decoded_words = words.map do |word|
-    decode_char(word)
+  letters = morse_code.split
+  decoded_letters = letters.map do |letter|
+    decode_char(letter)
   end
-  decoded_words.join
+  decoded_letters.join
 end
 
 def decode(morse_code)
-  # decode the message with word here.
+  words = morse_code.split('   ')
+  decoded_words = words.map do |word|
+    decode_word(word)
+  end
+  decoded_words.join(' ')
 end
 
 message = '.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'
